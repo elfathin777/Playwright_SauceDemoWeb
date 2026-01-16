@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../pages/LoginPage';
 import { HomePage } from '../../pages/HomePage';
-import { getSourceMapsSupport } from 'module';
 
 let homePage: HomePage;
 
@@ -58,5 +57,47 @@ test.describe('HP_SCN_002 - Memvalidasi bahwa pengguna dapat mengurutkan katalog
         await homePage.verifyProductNameSorted('za');
         
     })
+    
+})
+
+test.describe('HP_SCN_003 - Memvalidasi fungsionalitas penambahan produk ke keranjang belanja (Add to Cart) dan memastikan sinkronisasi jumlah item pada ikon keranjang.', () => {
+    test('TC_CART_001 - Verifikasi jumlah barang pada ikon keranjang bertambah secara akurat sesuai dengan banyaknya produk yang dipilih oleh pengguna (satu produk)', async ({ page }) => {
+        await homePage.clickFirstProduct('sauce-labs-backpack');    
+        await homePage.verifyCartBadge('1');
+    })
+
+    test('TC_CART_002 - Verifikasi jumlah barang pada ikon keranjang bertambah secara akurat sesuai dengan banyaknya produk yang dipilih oleh pengguna (lebih dari satu produk)', async ({ page }) => {
+        await homePage.clickFirstProduct('sauce-labs-backpack');    
+        await homePage.clickFirstProduct('sauce-labs-bike-light');  
+        await homePage.clickFirstProduct('sauce-labs-bolt-t-shirt');  
+        await homePage.verifyCartBadge('3');
+    })
+    
+    test('TC_CART_003 - Verifikasi Klik pada tombol "Remove" harus mengubah label tombol kembali menjadi "Add to Cart" dan mengurangi jumlah pada Shopping Cart', async ({ page }) => {
+        await homePage.clickFirstProduct('sauce-labs-backpack');    
+        await homePage.clickFirstProduct('sauce-labs-bike-light'); 
+        await homePage.verifyCartBadge('2'); 
+        await homePage.clickRemoveBtn('sauce-labs-bike-light');
+        await homePage.verifyCartBadge('1');
+    })
+
+    test("TC_CART_004 - Validasi bahwa tombol 'Remove' secara akurat mengembalikan status tombol menjadi 'Add to Cart', memperbarui jumlah pada ikon keranjang belanja, dan memastikan perubahan tersebut tetap bertahan meskipun halaman dimuat ulang", async ({ page }) => {
+        await homePage.clickFirstProduct('sauce-labs-backpack');    
+        await homePage.clickFirstProduct('sauce-labs-bike-light'); 
+        await homePage.verifyCartBadge('2'); 
+        await homePage.clickRemoveBtn('sauce-labs-bike-light');
+        await homePage.verifyBtnIsAddToChart('sauce-labs-bike-light');
+        await homePage.verifyCartBadge('1');
+        await page.reload();
+        await homePage.verifyBtnIsAddToChart('sauce-labs-bike-light');
+        await homePage.verifyCartBadge('1');
+    })
+
+    test('TC_CART_005 - Validasi sistem berhasil mengarahkan pengguna ke halaman Product Detail (PDP) yang relevan setelah nama atau gambar produk diklik', async ({ page }) => {
+        await homePage.clickTitleProduct('Sauce Labs Bike Light');
+        await homePage.verifyProductDescription('A red light');
+        await homePage.verifyAddressDetailPage('https://www.saucedemo.com/inventory-item.html?id=0');
+    })
+    
     
 })
