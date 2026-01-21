@@ -1,103 +1,112 @@
 ## 📌 Playwright Automation Testing Project
 
-**(Work in Progress)**
+This repository contains an **ongoing web automation testing project** built using **Playwright**.
+The project is developed incrementally to demonstrate a **structured, realistic automation workflow**, starting from core fundamentals before scaling to more advanced patterns.
 
-This repository contains an **automation testing project** built using **Playwright**, focusing on practicing web UI automation through a step-by-step development approach.
-
-The project is currently **in progress**, starting with **basic login automation** using standard Playwright syntax. More advanced approaches such as **Data-Driven Testing (DDT)** will be introduced in future updates.
-
----
-
-## 🚧 Project Status
-
-🔄 **Ongoing / In Progress**
-
-* Current implementation: **Login automation (basic syntax)**
-* Framework and test structure are under active development
-* The project is updated **regularly as new features are added**
+At the current stage, the automation focuses on the **Login feature**, implemented using **plain Playwright syntax** to ensure clarity and strong foundational understanding.
 
 ---
 
 ## 🎯 Project Purpose
 
-This project aims to:
+This project is created to:
 
-* Build a solid foundation in **Playwright automation**
-* Practice writing clean and readable automation tests
-* Gradually evolve from basic automation to more advanced patterns
-* Serve as a **QA Automation learning and portfolio project**
+* Demonstrate hands-on experience with **Playwright for Web UI automation**
+* Show a **progressive automation approach**, starting simple and evolving over time
+* Emphasize **readable, maintainable test scripts**
+* Serve as a **QA Automation portfolio project** aligned with real-world practices
+
+The project will be **updated regularly** as new features, improvements, and design patterns are introduced.
 
 ---
 
-## 🧪 Current Automation Scope
+## 🧱 Tech Stack
+
+* **Playwright**
+* **TypeScript**
+* **Node.js**
+* **Git & GitHub**
+
+---
+
+## 🧪 Current Testing Scope
 
 ### Implemented Feature
 
-**Login Automation**
+* **Login functionality**
+* **Homepage UI validation**
 
-* Successful login scenario
-* Failed login scenario (invalid credentials)
-* Basic assertions to validate login behavior
+### Covered Scenarios
 
-> Test cases are currently implemented using **direct Playwright syntax** without data-driven logic.
+* Valid login flow
+* Basic validation using assertions
+* Sorting Assertion
 
----
+At this stage:
 
-## 🔁 Automation Approach
+* Tests are written using **standard Playwright syntax**
+* **Data-Driven Testing (DDT)** is **not yet applied**
+* **Page Object Model (POM)** will be updated continuously
 
-* Direct Playwright test scripting
-* Clear separation between test steps and assertions
-* Simple and readable test flow for learning purposes
-
-Future updates will include:
-
-* Data-Driven Testing (DDT)
-* Reusable functions or page abstraction
-* Improved test structure and scalability
+This deliberate approach ensures the fundamentals are solid before introducing abstractions.
 
 ---
 
-## 🧱 Tools & Technologies
+## 🧭 Automation Approach
 
-* Playwright
-* JavaScript / TypeScript
-* Node.js
-* Git & GitHub
+* Tests are written with **clear, explicit steps**
+* Assertions focus on **functional correctness**
+* Emphasis on **test readability and intent**
+* Structure is prepared to support future scalability (POM, DDT, CI integration)
+
+This reflects a real-world automation journey, where stability and clarity come before optimization.
 
 ---
 
 ## ▶️ How to Run the Tests
 
-1. Clone this repository
-2. Install dependencies:
+1. Install dependencies:
 
    ```bash
    npm install
    ```
-3. Run the tests:
+
+2. Run Playwright tests:
 
    ```bash
    npx playwright test
    ```
 
+3. View the test report:
+
+   ```bash
+   npx playwright show-report
+   ```
+
 ---
 
-## 🔮 Planned Enhancements
+## 🔄 Project Status
 
-* Implement Data-Driven Testing (DDT)
-* Refactor login test into reusable components
-* Add more features and negative test scenarios
-* Improve reporting and test organization
+🚧 **In Progress**
+
+This project is actively maintained and **updated incrementally**.
+Upcoming improvements may include:
+
+* Data-Driven Testing (DDT)
+* Test suite optimization
+* Reporting and CI integration
+
+Each update reflects practical learning and refinement, not rushed implementation.
 
 ---
 
 ## 👤 Author
 
 **Haruna Elfathin**
-QA Automation | Playwright Learning Project
+QA / Automation Testing Enthusiast
 
 ---
 
-## 📄 Notes
+## 📄 License
 
-This project reflects an **incremental learning approach**, starting from basic automation and evolving toward more advanced automation testing practices.
+This project is intended for **learning, practice, and professional portfolio purposes**.
