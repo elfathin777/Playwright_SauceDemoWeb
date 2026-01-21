@@ -16,8 +16,7 @@ export class HomePage {
         this.detail = page.locator('.inventory_item_desc');
         this.sort = page.locator('[data-test="product-sort-container"]');
         this.cartBadge = page.locator(".shopping_cart_badge");
-        this.detailDescription = page.locator(".inventory_details_desc.large_size");
-        
+        this.detailDescription = page.locator(".inventory_details_desc.large_size");    
     }
     
     async verifyTitleProduct(name: string){

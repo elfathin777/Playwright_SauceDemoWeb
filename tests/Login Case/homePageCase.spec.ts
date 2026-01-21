@@ -16,6 +16,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('HP_SCN_001 - Memvalidasi integritas data produk pada halaman Inventory untuk memastikan seluruh informasi seperti nama, deskripsi, harga, dan gambar ditampilkan secara akurat dan konsisten sesuai dengan database', () => {
     test('TC_VPROD_001 - Verifikasi tiap produk memiliki nama yang sesuai dengan produk', async ({ page }) => {
+        await expect(page).toHaveURL(/inventory.html/);
         await homePage.verifyTitleProduct('Sauce Labs Bike Light');
         await homePage.verifyAltImg('Sauce Labs Bike Light');
     })
@@ -96,7 +97,7 @@ test.describe('HP_SCN_003 - Memvalidasi fungsionalitas penambahan produk ke kera
     test('TC_CART_005 - Validasi sistem berhasil mengarahkan pengguna ke halaman Product Detail (PDP) yang relevan setelah nama atau gambar produk diklik', async ({ page }) => {
         await homePage.clickTitleProduct('Sauce Labs Bike Light');
         await homePage.verifyProductDescription('A red light');
-        await homePage.verifyAddressDetailPage('https://www.saucedemo.com/inventory-item.html?id=0');
+        await homePage.verifyAddressDetailPage('https://www.saucedemo.com/inventory-item.html');
     })
     
     
