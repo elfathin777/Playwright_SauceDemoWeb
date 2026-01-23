@@ -85,5 +85,9 @@ export class HomePage {
     async clickTitleProduct(name: string){
         await this.product.filter({hasText: name}).click();
     }
+
+    async clickCartIcon(){
+        await this.page.locator(`[data-test="shopping-cart-link"]`).click();
+    }
     
 }
