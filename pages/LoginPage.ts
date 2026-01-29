@@ -11,13 +11,13 @@ export class LoginPage {
 
 
     constructor(page: Page) {
-        this.page = page;
-        this.usernameField = page.getByRole('textbox', { name: 'Username' });
-        this.passwordField = page.getByRole('textbox', { name: 'Password' });
-        this.loginButton = page.getByRole('button');
-        this.warningMessage = page.getByText('Epic sadface: Username is required');
-        this.warningSuccess = page.getByText('Products');
-    }
+    this.page = page;
+    this.usernameField = page.locator('[data-test="username"]');
+    this.passwordField = page.locator('[data-test="password"]');
+    this.loginButton = page.locator('[data-test="login-button"]');
+    this.warningMessage = page.locator('[data-test="error"]');
+    this.warningSuccess = page.locator('[data-test="title"]'); 
+}
 
     async open(){
         await this.page.goto('https://www.saucedemo.com/');
