@@ -11,12 +11,13 @@ export class HomePage {
     
     constructor(page: Page) {
         this.page = page;
-        this.product = page.locator('.inventory_item_name');
-        this.price = page.locator('.inventory_item_price'); 
-        this.detail = page.locator('.inventory_item_desc');
+
+        this.product = page.locator('[data-test="inventory-item-name"]');
+        this.price = page.locator('[data-test="inventory-item-price"]');
+        this.detail = page.locator('[data-test="inventory-item-desc"]');
         this.sort = page.locator('[data-test="product-sort-container"]');
-        this.cartBadge = page.locator(".shopping_cart_badge");
-        this.detailDescription = page.locator(".inventory_details_desc.large_size");    
+        this.cartBadge = page.locator('[data-test="shopping-cart-badge"]');
+        this.detailDescription = page.locator('[data-test="inventory-details-desc"]');
     }
     
     async verifyTitleProduct(name: string){
