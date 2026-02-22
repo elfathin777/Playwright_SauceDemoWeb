@@ -11,8 +11,7 @@ export class HomePage {
     
     constructor(page: Page) {
         this.page = page;
-
-        this.product = page.locator('[data-test="inventory-item-name"]');
+        this.product = page.locator(`[data-test="inventory-item-name"]`);
         this.price = page.locator('[data-test="inventory-item-price"]');
         this.detail = page.locator('[data-test="inventory-item-desc"]');
         this.sort = page.locator('[data-test="product-sort-container"]');

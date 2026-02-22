@@ -19,9 +19,13 @@ export class CartPage {
     await this.continueShoppingBtn.click();
   }
 
+  async clickCheckoutBtn() {
+    await this.checkoutBtn.click();
+  }
+
   async addProductToCart(backpack: string){ 
     await this.page.locator(`[data-test="add-to-cart-${backpack}"]`).click(); 
-}
+  }
 
   async verifyProductInCart(productName: string) {
     await expect(this.verifyProduct).toContainText(productName);
